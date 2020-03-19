@@ -1,10 +1,42 @@
 <template>
   <div>
+    <sf-header title="IT for the rescue">
+      <template #navigation>
+        <SfHeaderNavigationItem v-for="item in navigation" :key="item">
+          <nuxt-link
+            :to="item.link"
+            :style="{ display: 'flex', alignItems: 'center', height: '100%' }"
+            >{{ item.name }}</nuxt-link
+          >
+        </SfHeaderNavigationItem>
+      </template>
+    </sf-header>
     <nuxt />
+    <sf-footer />
   </div>
 </template>
-
+<script>
+import { SfFooter, SfHeader } from '@storefront-ui/vue'
+export default {
+  components: {
+    SfFooter,
+    SfHeader
+  },
+  data() {
+    return {
+      isMobile: false,
+      navigation: [
+        { name: 'Idea', link: '/' },
+        { name: 'Looking for Help', link: '/LookingForHelp' },
+        { name: 'Provide rescue', link: '/ProvifdeRescue' },
+        { name: 'Contact', link: '/Contact' }
+      ]
+    }
+  }
+}
+</script>
 <style>
+/* @import '@storefront-ui/vue/styles.scss'; */
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;

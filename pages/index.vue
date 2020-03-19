@@ -1,35 +1,32 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-      <h1 class="title">
-        tech-for-rescue
-      </h1>
-      <h2 class="subtitle">
-        tech companies for help during corona time
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <sf-section
+        title-heading="tech-for-rescue"
+        subtitle-heading="Tech companies for help during corona time"
+        level-haeding="2"
+      >
+        Łączę ponownie… IT is here to help 100% We need a lot of new tools to
+        help People go through the crisis. Software Companies are eager to help
+        here. We've collected a list of super-talented companies that are open
+        to help NGOs, Gov, and others. Please share it. If you run a Software
+        Company, feel free to add yourself here too. Add your company here:
+        https://docs.google.com/forms/d/e/1FAIpQLSePKBbiJy8Phazb8c3ngH6eSgI8dwwVRKWpeCYttsji6YWnqQ/viewform?fbclid=IwAR0obUDdn9XnXXNTKEvP9LRkTDyZ_Wk8qoGASDOuxfxWm3LTo0XpufWwwwI
+        If you need any help, you can contact me at Linkedin:
+        https://www.linkedin.com/in/tkarwatka/ Aby włączyć obsługę czytnika
+        ekranu, naciśnij Ctrl+Alt+Z. Aby uzyskać informacje o skrótach
+        klawiszowych, naciśnij Ctrl+ukośnik.
+      </sf-section>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import { SfSection } from '@storefront-ui/vue'
 
 export default {
   components: {
-    Logo
+    SfSection
   }
 }
 </script>
