@@ -1,5 +1,5 @@
 <template>
-  <sf-table>
+  <sf-table class="sf-table--bordered w-4/5 m-5">
     <SfTableHeading>
       <SfTableHeader v-for="head in heading" :key="head">{{
         head

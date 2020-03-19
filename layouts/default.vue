@@ -1,6 +1,11 @@
 <template>
   <div>
-    <sf-header title="IT for the rescue">
+    <sf-header
+      title="IT for the rescue"
+      :cart-icon="false"
+      :wishlist-icon="false"
+      :has-badge="false"
+    >
       <template #navigation>
         <SfHeaderNavigationItem v-for="item in navigation" :key="item">
           <nuxt-link
@@ -12,10 +17,14 @@
       </template>
     </sf-header>
     <nuxt />
-    <sf-footer />
+    <sf-footer :column="1">
+      Proudly supported by
+      <sf-image :src="src" />
+    </sf-footer>
   </div>
 </template>
 <script>
+import '@storefront-ui/vue/styles.scss'
 import { SfFooter, SfHeader } from '@storefront-ui/vue'
 export default {
   components: {
@@ -30,7 +39,17 @@ export default {
         { name: 'Looking for Help', link: '/LookingForHelp' },
         { name: 'Provide rescue', link: '/ProvifdeRescue' },
         { name: 'Contact', link: '/Contact' }
-      ]
+      ],
+      src: {
+        mobile: {
+          url:
+            '@assets/images/5e73b0d410e4b4534c046525_Divante_logo_sygnet_dvnt-p-500.png'
+        },
+        desktop: {
+          url:
+            '@assets/images/5e73b0d410e4b4534c046525_Divante_logo_sygnet_dvnt-p-500.png'
+        }
+      }
     }
   }
 }
