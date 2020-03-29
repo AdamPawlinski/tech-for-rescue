@@ -1,16 +1,15 @@
 <template>
-  <div class="tech__company-container">
-    <BannerSection :banner="companyBannerContent" />
+  <div class="tech__ngo-container">
+    <BannerSection :banner="ngoBannerContent" />
     <TableSection
-      :tableSectionHeading="companyTableSectionHeading"
-      :table-data="companyData"
+      :table-data="ngoData"
+      :tableSectionHeading="ngoTableSectionHeading"
     />
-    <FormSection :form="companyFormInputs" />
+    <FormSection :form="ngoFormInputs" />
   </div>
 </template>
-
 <script>
-import * as companyList from '../db.json'
+import * as ngoList from '../db.json'
 import { BannerSection } from '@/components/BannerSection'
 import { TableSection } from '@/components/TableSection'
 import { FormSection } from '@/components/FormSection'
@@ -23,20 +22,21 @@ export default {
   },
   data() {
     return {
-      companyBannerContent: {
-        title: 'Helping companys get through the COVID-19 crisis',
+      ngoBannerContent: {
+        title: 'Helping NGOs get through the COVID-19 crisis',
         description:
           'A voluntary movement connecting IT companies with non-governmental organizations around the world.',
         buttonText: 'I want to volunteer',
         url: '~/assets/images/HERO-IMAGE.svg',
         background: '#FFF'
       },
-      companyTableSectionHeading: {
+      ngoData: ngoList,
+      ngoTableSectionHeading: {
+        title: 'Over 100 companies to help you',
         subtitle:
-          '50+ companies from 5+ countries have pledged to support and empower NGOs around the world as they innovate to fight the effects of the coronavirus crisis. Businesses volunteer to give their time and expertise to those whose mission is to protect and save lives.'
+          'Our list of volounteers equals to over 100 worldwide companies, and is still growing'
       },
-      companyData: companyList,
-      companyFormInputs: [
+      ngoFormInputs: [
         {
           value: 'companyName',
           type: 'text',
@@ -91,41 +91,3 @@ export default {
   }
 }
 </script>
-
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>

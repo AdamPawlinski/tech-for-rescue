@@ -1,44 +1,58 @@
 <template>
   <div>
-    <sf-header
-      title="IT for the rescue"
-      :cart-icon="false"
-      :wishlist-icon="false"
-      :has-badge="false"
+    <SfHeader
+      title="IT to the rescue"
+      class="sf-header--is-sticky"
+      logo="~/assets/images/logo.svg"
     >
+      <!-- :wishlist-icon="false"
+      :cart-icon="false" -->
       <template #navigation>
-        <SfHeaderNavigationItem v-for="item in navigation" :key="item">
+        <SfHeaderNavigaionItem v-for="(item, index) in navigation" :key="index">
           <nuxt-link
             :to="item.link"
             :style="{ display: 'flex', alignItems: 'center', height: '100%' }"
-            >{{ item.name }}</nuxt-link
+            ><SfButton class="sf-button--outline">{{
+              item.name
+            }}</SfButton></nuxt-link
           >
-        </SfHeaderNavigationItem>
+        </SfHeaderNavigaionItem>
       </template>
-    </sf-header>
+      <template #header-icons>
+        <SfIcon
+          v-for="(icon, index) in headerIcons"
+          :key="index"
+          :icon="icon"
+        />
+      </template>
+    </SfHeader>
     <nuxt />
-    <sf-footer :column="1">
+    <InformSection />
+    <SfFooter :column="1">
       Proudly supported by
-      <sf-image :src="src" />
-    </sf-footer>
+      <SfImage :src="src" />
+    </SfFooter>
   </div>
 </template>
 <script>
 import '@storefront-ui/vue/styles.scss'
-import { SfFooter, SfHeader } from '@storefront-ui/vue'
+import { SfFooter, SfHeader, SfButton, SfIcon } from '@storefront-ui/vue'
+import InformSection from '@/components/InformSection'
+
 export default {
   components: {
     SfFooter,
-    SfHeader
+    SfHeader,
+    SfButton,
+    SfIcon,
+    InformSection
   },
   data() {
     return {
       isMobile: false,
       navigation: [
-        { name: 'Idea', link: '/' },
-        { name: 'Looking for Help', link: '/LookingForHelp' },
-        { name: 'Provide rescue', link: '/ProvifdeRescue' },
-        { name: 'Contact', link: '/Contact' }
+        { name: 'Home', link: '/' },
+        { name: 'Join Us', link: '/LookingForHelp' }
       ],
       src: {
         mobile: {
@@ -49,7 +63,12 @@ export default {
           url:
             '@assets/images/5e73b0d410e4b4534c046525_Divante_logo_sygnet_dvnt-p-500.png'
         }
-      }
+      },
+      headerIcons: [
+        '@/assets/images/linkedIn.png',
+        '@/assets/images/twitter.png',
+        '@/assets/images/facebook.png'
+      ]
     }
   }
 }
